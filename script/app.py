@@ -1,9 +1,12 @@
 import streamlit as st
 import pandas as pd
 import requests
+from dotenv import load_dotenv
+import os
 
 # Set up the OpenWeather API endpoint and your API key
-API_KEY = "076d6dd5946fb1b198b90b532cab36ba"
+load_dotenv()
+API_KEY = os.getenv("API_KEY")
 BASE_URL = "http://api.openweathermap.org/data/2.5/weather"
 
 

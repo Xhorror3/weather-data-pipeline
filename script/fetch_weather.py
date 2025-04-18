@@ -3,6 +3,10 @@ import json
 import pandas as pd
 import os
 from datetime import datetime
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 def fetch_weather(city: str, api_key: str):
     url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric"
@@ -37,7 +41,7 @@ def save_to_csv(data: dict, filepath: str):
 
 
 if __name__ == "__main__":
-    API_KEY = "076d6dd5946fb1b198b90b532cab36ba"
+    API_KEY = os.getenv("API_KEY")
     CITY = "Mumbai"
     FILEPATH = os.path.join(os.path.dirname(__file__), "../data/raw_weather.csv")
 
